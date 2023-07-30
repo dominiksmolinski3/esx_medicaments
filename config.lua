@@ -9,11 +9,11 @@ Config.PharmacyItems = {
 		item = "vicodin"
 	},
 	{
-		title = "Gaza",
+		title = "Gauze",
 		item = "gauze"
 	},
 	{
-		title = "Morfina",
+		title = "Morphine",
 		item = "morphine"
 	}
 }

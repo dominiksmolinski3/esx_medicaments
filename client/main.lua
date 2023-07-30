@@ -10,58 +10,84 @@ AddEventHandler('cynio:useItem', function(itemName)
   ESX.CloseContext()
 
   if itemName == 'vicodin' then
-    local lib, anim = 'anim@heists@narcotics@funding@gang_idle', 'gang_chatting_idle01' 
-    local playerPed = PlayerPedId()
-
-    ESX.Streaming.RequestAnimDict(lib, function()
-      TaskPlayAnim(playerPed, lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
-      RemoveAnimDict(lib)
-
-      Wait(500)
-      while IsEntityPlayingAnim(playerPed, lib, anim, 3) do
-        Wait(0)
-        DisableAllControlActions(0)
-      end
-      TriggerEvent('cynio:heal', 'big', true)
-      ESX.ShowNotification(TranslateCap('used_vicodin'))
-    end)
-
+       TriggerEvent("mythic_progbar:client:progress", {
+        name = "meds3",
+        duration = 1000,
+        label = "Zazywasz vicodin",
+        useWhileDead = false,
+        canCancel = true,
+        controlDisables = {
+            disableMovement = true,
+            disableCarMovement = true,
+            disableMouse = false,
+            disableCombat = true,
+        },
+        animation = {
+            animDict = "mp_player_intdrink",
+            anim = "loop_bottle",
+        },
+        prop = {
+            model = "ng_proc_drug01a002",
+        }
+    }, function(status)
+        if not status then
+            TriggerEvent('cynio:heal', 'big', true)
+			ESX.ShowNotification(TranslateCap('used_vicodin'))
+    end
+   end)
   elseif itemName == 'gauze' then
-    local lib, anim = 'anim@heists@narcotics@funding@gang_idle', 'gang_chatting_idle01' -- TODO better animations
-    local playerPed = PlayerPedId()
+       TriggerEvent("mythic_progbar:client:progress", {
+        name = "meds",
+        duration = 5000,
+        label = "Opatrujesz rany",
+        useWhileDead = false,
+        canCancel = true,
+        controlDisables = {
+            disableMovement = true,
+            disableCarMovement = true,
+            disableMouse = false,
+            disableCombat = true,
+        },
+        animation = {
+            animDict = "anim@heists@narcotics@funding@gang_idle",
+            anim = "gang_chatting_idle01",
+        },
+        prop = {
+            model = "ng_proc_drug01a002",
+        }
+    }, function(status)
+        if not status then
+            TriggerEvent('cynio:heal', 'small', true)
+			ESX.ShowNotification(TranslateCap('used_gauze'))
+        end
+    end)            
 
-    ESX.Streaming.RequestAnimDict(lib, function()
-      TaskPlayAnim(playerPed, lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
-      RemoveAnimDict(lib)
-
-      Wait(500)
-      while IsEntityPlayingAnim(playerPed, lib, anim, 3) do
-        Wait(0)
-        DisableAllControlActions(0)
-      end
-
-      TriggerEvent('cynio:heal', 'small', true)
-      ESX.ShowNotification(TranslateCap('used_gauze'))
-    end)
   elseif itemName == 'morphine' then
-    local lib, anim = 'anim@heists@narcotics@funding@gang_idle', 'gang_chatting_idle01' -- TODO better animations
-    local playerPed = PlayerPedId()
-
-    ESX.Streaming.RequestAnimDict(lib, function()
-      TaskPlayAnim(playerPed, lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
-      RemoveAnimDict(lib)
-
-      Wait(500)
-      while IsEntityPlayingAnim(playerPed, lib, anim, 3) do
-        Wait(0)
-        DisableAllControlActions(0)
-      end
-
-      TriggerEvent('cynio:heal', 'medium', true)
-      ESX.ShowNotification(TranslateCap('used_morphine'))
-    end)
-  end
-end)
+       TriggerEvent("mythic_progbar:client:progress", {
+        name = "meds2",
+        duration = 1000,
+        label = "Zazywasz morfine",
+        useWhileDead = false,
+        canCancel = true,
+        controlDisables = {
+            disableMovement = true,
+            disableCarMovement = true,
+            disableMouse = false,
+            disableCombat = true,
+        },
+        animation = {
+            animDict = "mp_player_intdrink",
+            anim = "loop_bottle",
+        },
+        prop = {
+            model = "ng_proc_drug01a002",
+        }
+    }, function(status)
+        if not status then
+            TriggerEvent('cynio:heal', 'medium', true)
+			ESX.ShowNotification(TranslateCap('used_morphine'))
+        end
+    end)       
 
 RegisterNetEvent('cynio:heal')
 AddEventHandler('cynio:heal', function(healType, quiet)
@@ -87,6 +113,5 @@ AddEventHandler('cynio:heal', function(healType, quiet)
 		ESX.ShowNotification(TranslateCap('healed'))
 	end
 end)
-
-
-
+end
+end)

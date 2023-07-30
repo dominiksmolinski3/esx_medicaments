@@ -7,7 +7,7 @@ ESX Legacy
 
 oxmysql - should be in default esx server, needed for connecting database with server but if you dont have it, https://github.com/overextended/oxmysql
 
-mythic_progbar - optional, will be needed in the future, cool stuff tho https://github.com/OGarridoR10/mythic_progbar
+mythic_progbar - https://github.com/OGarridoR10/mythic_progbar
 
 ## Installation
 Download from 'Releases' or manually.
@@ -26,10 +26,6 @@ All done! Contact me if need help.
 I'm open to all suggestions and if you need help don't be afraid to open tickets in the 'Issues' tab.
 
 Open for pull requests.
-
-## Working on
-Adding progressbar while using meds
-
 
 ## Legal
 

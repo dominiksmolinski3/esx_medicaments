@@ -1,6 +1,6 @@
 <h1 align='center'>[ESX] Medicaments</a></h1><p align='center'>
 
-Really simple resource created to add more medicines in GTA V FiveM, ESX framework
+simple resource created to add more medicines in GTA V FiveM, ESX framework
 
 ## Dependencies
 ESX Legacy

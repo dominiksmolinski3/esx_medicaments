@@ -30,7 +30,7 @@ ESX.RegisterUsableItem('morphine', function(source)
 		playersHealing[source] = true
 		TriggerClientEvent('cynio:useItem', source, 'morphine')
 
-		Wait(10000)
+		Wait(2000)
 		playersHealing[source] = nil
 	end
 end)
@@ -43,7 +43,7 @@ ESX.RegisterUsableItem('vicodin', function(source)
 		playersHealing[source] = true
 		TriggerClientEvent('cynio:useItem', source, 'vicodin')
 
-		Wait(10000)
+		Wait(2000)
 		playersHealing[source] = nil
 	end
 end)
@@ -56,7 +56,7 @@ ESX.RegisterUsableItem('gauze', function(source)
 		playersHealing[source] = true
 		TriggerClientEvent('cynio:useItem', source, 'gauze')
 
-		Wait(10000)
+		Wait(6000)
 		playersHealing[source] = nil
 	end
 end)

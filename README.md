@@ -18,6 +18,8 @@ Put the 'esx_medicaments' into 'resources' in your server.
 
 Add 'ensure esx_medicaments' or 'start esx_medicaments' whichever you please to the server.cfg
 
+Make sure that runs before esx_ambulancejob if you use it, otherwise it will override /revive command and it will not work.
+
 insert esx_medicamentsql.sql into your database
 
 All done! Contact me if need help.
